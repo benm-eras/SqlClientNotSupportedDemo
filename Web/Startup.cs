@@ -46,7 +46,10 @@ namespace Web
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    DataContext db = context.RequestServices.GetRequiredService<DataContext>();
+                    int n = db.Users.Count();
+
+                    await context.Response.WriteAsync($"Hello World! There are {n} users");
                 });
             });
         }

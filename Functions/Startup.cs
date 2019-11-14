@@ -25,7 +25,7 @@ namespace Functions
         {
             builder.Services.AddDbContext<DataContext>(o => o.UseSqlServer(
                 config.GetConnectionString("SqlConnection"),
-                s => s.MigrationsAssembly("Portal.UI")
+                s => s.MigrationsAssembly("Web")
             ));
         }
     }
